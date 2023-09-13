@@ -1,14 +1,14 @@
-[all-ubuntu]
+[allubuntu]
 ubuntu1
 ubuntu2
 ubuntu3
  
-[all-centos]
+[allcentos]
 centos1
 centos2
 centos3
 
 
 [lab:children]
-all-centos
-all-ubuntu
+allcentos
+allubuntu
