@@ -1,5 +1,5 @@
 [allubuntu]
-ubuntu1
+ubuntu1 http_host=mydomain.local http_conf=mydomain.local.conf
 ubuntu2
 ubuntu3
  
@@ -12,4 +12,3 @@ centos3
 [lab:children]
 allcentos
 allubuntu
-http_host=mydomain.local http_conf=mydomain.local.conf
