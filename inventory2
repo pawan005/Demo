@@ -1,0 +1,15 @@
+[allubuntu]
+ubuntu1
+ubuntu2
+ubuntu3
+ 
+[allcentos]
+centos1
+centos2
+centos3
+
+
+[lab:children]
+allcentos
+allubuntu
+http_host=mydomain.local http_conf=mydomain.local.conf
