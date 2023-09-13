@@ -27,11 +27,11 @@
       command: a2ensite {{ http_conf }}
       notify: restart-apache
  
-    - name: "UFW firewall allow HTTP on port {{ http_port }}"
-      ufw:
-        rule: allow
-        port: "{{ http_port }}"
-        proto: tcp
+    # - name: "UFW firewall allow HTTP on port {{ http_port }}"
+    #   ufw:
+    #     rule: allow
+    #     port: "{{ http_port }}"
+    #     proto: tcp
  
   handlers:
     - name: restart-apache
