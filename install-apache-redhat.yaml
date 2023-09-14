@@ -30,7 +30,7 @@
 
     - name: httpd template for index.html
       template:
-        src: file/index.j2
+        src: files/index.j2
         dest: /var/www/html/index.html
         owner: root
         group: root
