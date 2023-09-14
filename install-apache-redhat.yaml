@@ -18,12 +18,14 @@
 
     - name: Install HTTPD on CentOS
       dnf:
-        name: '{{ pkg }}'
+        name: 
+          - httpd
+          - curl          
         state: present
         update_cache: True
-      with_items:
-        - httpd
-        - curl
+      # with_items:
+      #   - httpd
+      #   - curl
  
 
     - name: httpd template for index.html
