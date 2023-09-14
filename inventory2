@@ -1,7 +1,7 @@
 [allubuntu]
-ubuntu1 http_host=mydomain.local http_conf=mydomain.local.conf http_port=80
-ubuntu2 http_host=mydomain.local http_conf=mydomain.local.conf http_port=80
-ubuntu3
+ubuntu1 http_host=ubuntu1 http_conf=ubuntu1.conf http_port=80
+ubuntu2 http_host=ubuntu2 http_conf=ubuntu2.conf http_port=80
+ubuntu3 http_host=ubuntu3 http_conf=ubuntu3.conf http_port=80
  
 [allcentos]
 centos1
