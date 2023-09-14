@@ -4,6 +4,9 @@
   tasks:
     - name: Install latest version of Apache
       apt: name=apache2 update_cache=yes state=latest
+    
+    - name: Install latest version of curl
+      apt: name=curl update_cache=yes state=latest
  
     - name: Create document root for domain configured in host variable
       file:
@@ -26,6 +29,12 @@
     - name: Enable site
       command: a2ensite {{ http_conf }}
       notify: restart-apache
+
+    - name: Check URL
+      uri:
+        url: 'http://mydomain.local'
+        method: GET
+      # register: result      
  
     # - name: "UFW firewall allow HTTP on port {{ http_port }}"
     #   ufw:
