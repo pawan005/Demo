@@ -1,12 +1,20 @@
 - name: Ansible Playbook to Install and Setup Apache on Ubuntu
   hosts: all
   become: yes
+  # gather_facts: no
+
   tasks:
-    - name: Install latest version of Apache
+    - name: Install latest version of Apache httpd on Ubuntu
       apt: name=apache2 update_cache=yes state=latest
     
     - name: Install latest version of curl
       apt: name=curl update_cache=yes state=latest
+
+    - name: Install httpd on CentOS
+      dnf:
+        name: httpd
+        state: latest
+      when:  
  
     - name: Create document root for domain configured in host variable
       file:
@@ -30,10 +38,10 @@
       command: a2ensite {{ http_conf }}
       notify: restart-apache
 
-    - name: Check URL
-      uri:
-        url: 'http://{{ http_host }}'
-        method: GET
+    # - name: Check URL
+    #   uri:
+    #     url: 'http://{{ http_host }}'
+    #     method: GET
       # register: result      
  
     # - name: "UFW firewall allow HTTP on port {{ http_port }}"
