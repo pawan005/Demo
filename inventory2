@@ -4,10 +4,9 @@ ubuntu2 http_host=ubuntu2 http_conf=ubuntu2.conf http_port=80
 ubuntu3 http_host=ubuntu3 http_conf=ubuntu3.conf http_port=80
  
 [allcentos]
-centos1
-centos2
-centos3
-
+centos1 http_host=centos1 http_conf=centos1.conf http_port=80
+centos2 http_host=centos2 http_conf=centos2.conf http_port=80
+centos3 http_host=centos3 http_conf=centos3.conf http_port=80
 
 [lab:children]
 allcentos
