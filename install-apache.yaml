@@ -6,15 +6,23 @@
   tasks:
     - name: Install latest version of Apache httpd on Ubuntu
       apt: name=apache2 update_cache=yes state=latest
+      when: ansible_facts['os_family'] == 'Debian'
     
-    - name: Install latest version of curl
+    - name: Install latest version of curl on Ubuntu
       apt: name=curl update_cache=yes state=latest
+      when: ansible_facts['os_family'] == 'Debian'
 
-    - name: Install httpd on CentOS
+    - name: Install Apache2/httpd2 on CentOS
       dnf:
         name: httpd
         state: latest
-      when:  
+      when: ansible_facts['os_family'] == 'RedHat'
+
+    - name: Install curl on CentOS
+      dnf:
+        name: curl
+        state: latest
+      when: ansible_facts['os_family'] == 'RedHat'
  
     - name: Create document root for domain configured in host variable
       file:
