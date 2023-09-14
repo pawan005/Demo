@@ -32,7 +32,7 @@
 
     - name: Check URL
       uri:
-        url: 'http://mydomain.local'
+        url: 'http://{{ http_host }}'
         method: GET
       # register: result      
  
