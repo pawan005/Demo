@@ -8,14 +8,6 @@
 
   tasks:
 
-    # - name: Open http firewall port
-    #   firewalld:
-    #       service: http 
-    #       zone: public
-    #       immediate: yes # this is the firewall-cmd --reload
-    #       permanent: true
-    #       state: enabled
-
     - name: Install HTTPD on CentOS
       dnf:
         name: 
@@ -23,11 +15,7 @@
           - curl          
         state: present
         update_cache: True
-      # with_items:
-      #   - httpd
-      #   - curl
  
-
     - name: httpd template for index.html
       template:
         src: files/index.j2
@@ -37,17 +25,14 @@
         mode: 0644
       notify: restart-httpd
 
-
-
   handlers:
     - name: restart-apache
       service:
         name: httpd
         state: restarted
-      listen: "restart-httpd"
-      notify: check-url
+      listen: restart-httpd      
     - name: Check URL
       uri:
         url: 'http://{{ http_host }}'
         method: GET 
-      listen: check-url
+      listen: restart-httpd
