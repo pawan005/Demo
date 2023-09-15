@@ -1,9 +1,9 @@
 - name: Ansible Playbook to Install and Setup Apache on Ubuntu
   hosts: allcentos  
-  remote_user: ansible
+  become_user: root
   become: true
   become_method: sudo
-  become_user: root
+
   # gather_facts: no  
 
   tasks:
