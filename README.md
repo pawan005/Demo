@@ -25,3 +25,13 @@ Put following in ~/.ansible.cfg
 
 [defaults]
 host_key_checking = False
+
+or use following
+
+export ANSIBLE_HOST_KEY_CHECKING=False
+ansible-playbook 'playbook.yml' \
+--extra-vars="some vars..." \
+--tags="tags_name..." -vv
+
+
+Multiple Ansible Playbooks Examples: https://brad-simonin.medium.com/learning-ansible-with-centos-7-linux-12461043fd02
