@@ -2,8 +2,13 @@
 - hosts: all
   vars:
     - username: sammy
-    - home: /home/sammy   
+    - home: /home/sammy 
+    - var1: Sample Ansible Playbook  
   tasks:
-    - name: print variables
+    - name: Intoduction
+      debug:
+        msg: "{{ var1 }}"
+        
+    - name: printvariables
       debug:
         msg: "Username: {{ username }}, Home dir: {{ home }}"
